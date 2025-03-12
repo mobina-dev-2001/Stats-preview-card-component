@@ -1,0 +1,125 @@
+:root {
+    --very-dark-blue: hsl(233, 47%, 7%);
+    --dark-desaturated-blue: hsl(244, 38%, 16%);
+    --soft-violet: hsl(277, 64%, 61%);
+    --white: hsl(0, 0%, 100%);
+    --slightly-transparent-white-p: hsla(0, 0%, 100%, 0.75);
+    --slightly-transparent-white-h: hsla(0, 0%, 100%, 0.6);
+
+    --fs-primary: 0.925rem;
+    --fs-secondary: 0.75rem;
+
+    --fw-400: 400;
+    --fw-700: 700;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--very-dark-blue);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--fs-primary);
+}
+
+.card-container {
+    display: flex;
+    gap: 2rem;
+    max-width: min(1100px, 90vw);
+    background-color: var(--dark-desaturated-blue);
+    border-radius: 8px;
+    color: var(--white);
+}
+
+.card-image-container {
+    flex: 1;
+    padding: 4rem;
+    background: var(--soft-violet) url('images/image-header-desktop.jpg') no-repeat top right;
+    background-size: cover;
+    background-blend-mode: multiply;
+    border-radius: 0 8px 8px 0;
+}
+
+.card-body-container {
+    flex: 1;
+    padding: min(4.5rem, 10%);
+}
+
+.card-body-container>h1 {
+    font-size: 2.3rem;
+}
+
+.card-body-container>h1 span {
+    color: var(--soft-violet);
+}
+
+.card-body-container>p {
+    margin-block: 1.5rem;
+    color: var(--slightly-transparent-white-p);
+    line-height: 1.7;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-block-start: 4rem;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+.stats-container>div>p {
+    color: var(--slightly-transparent-white-h);
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: var(--fs-secondary);
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 767px) {
+    .card-container {
+        flex-direction: column-reverse;
+        gap: 0;
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    .card-image-container {
+        flex: unset;
+        border-radius: 8px 8px 0 0;
+        background: var(--soft-violet) url('images/image-header-mobile.jpg') no-repeat center;
+        background-size: cover;
+        width: 100%;
+        height: 330px;
+    }
+
+    .card-body-container {
+        flex: unset;
+    }
+
+    .card-body-container>p {
+        font-size: 1.2rem;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        font-size: 1.375rem;
+    }
+
+    .stats-container>div>p {
+        font-size: var(--fs-primary);
+    }
+}
